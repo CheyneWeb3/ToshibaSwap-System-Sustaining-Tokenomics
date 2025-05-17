@@ -71,48 +71,49 @@ To visualize, consider the flow of value in the ecosystem:
 
 ```mermaid
 flowchart LR
-    %% Fee sources
-    subgraph FeeSources["Fee Sources"]
-        SwapTrades["Swap Trades<br/>0.15 % fee"]
-        GamePlays["Game Plays<br/>30 % profit"]
-        BridgeTx["Bridge Transfers<br/>0.4 % fee"]
-        NFTSales["NFT Sales<br/>10 % fee"]
-        AggTrades["Aggregator Swaps<br/>0.5 % fee"]
-    end
+  %% ---------------- Fee sources ----------------
+  subgraph FeeSources["Fee Sources"]
+      Swap["Swap Trades<br/>0.15% fee"]
+      Games["Game Plays<br/>30% profit"]
+      Bridge["Bridge Transfers<br/>0.4% fee"]
+      NFTs["NFT Sales<br/>10% fee"]
+      Agg["Aggregator Swaps<br/>0.5% fee"]
+  end
 
-    %% Core router & vault
-    FeeRouter["Fee Router<br/>(auto buy & lock)"]
-    Vault["TOSHIBA Vault<br/>(locked tokens)"]
+  %% ---------------- Core router & vault ----------------
+  FeeRouter["Fee Router<br/>(auto buy & lock)"]
+  Vault["TOSHIBA Vault<br/>(locked tokens)"]
 
-    %% Vault outputs
-    LPAdd["Adds LP<br/>TOSHIBA-ETH"]
-    TeamVest["Team Wallets<br/>(2 % × 5 per yr)"]
-    ToshiPool["TOSHI Rewards Pool"]
+  %% ---------------- Vault outputs ----------------
+  LPAdd["Adds LP<br/>TOSHIBA-ETH"]
+  TeamVest["Team Wallets<br/>(2% × 5 per yr)"]
+  ToshiPool["TOSHI Rewards Pool"]
 
-    %% Reward sinks
-    SingleStake["Single Staking<br/>(earn TOSHI)"]
-    LPFarm["LP Farming<br/>(earn TOSHI)"]
-    XmasDrop["Christmas Airdrop<br/>(solid holders)"]
+  %% ---------------- Reward sinks ----------------
+  SingleStake["Single Staking<br/>(earn TOSHI)"]
+  LPFarm["LP Farming<br/>(earn TOSHI)"]
+  XmasDrop["Christmas Airdrop<br/>(solid holders)"]
 
-    %% Flows from fees → router
-    SwapTrades -->|fees| FeeRouter
-    GamePlays  -->|fees| FeeRouter
-    BridgeTx   -->|fees| FeeRouter
-    NFTSales   -->|fees| FeeRouter
-    AggTrades  -->|fees| FeeRouter
+  %% ---------------- Flows: fees → router ----------------
+  Swap   -->|fees| FeeRouter
+  Games  -->|fees| FeeRouter
+  Bridge -->|fees| FeeRouter
+  NFTs   -->|fees| FeeRouter
+  Agg    -->|fees| FeeRouter
 
-    %% Router → Vault
-    FeeRouter -->|buys TOSHIBA → locks| Vault
+  %% ---------------- Router → vault ----------------
+  FeeRouter -->|buys & locks TOSHIBA| Vault
 
-    %% Vault branches
-    Vault -->|pairs with ETH| LPAdd
-    Vault -->|yields TOSHI|  ToshiPool
-    Vault -. "2-yr cliff → 10 %/yr" .-> TeamVest
+  %% ---------------- Vault branches ----------------
+  Vault -->|pairs with ETH| LPAdd
+  Vault -->|yields TOSHI|   ToshiPool
+  Vault -. "2-yr cliff<br/>10% per yr" .-> TeamVest
 
-    %% TOSHI flow
-    ToshiPool --> SingleStake
-    ToshiPool --> LPFarm
-    ToshiPool --> XmasDrop
+  %% ---------------- TOSHI distribution ----------------
+  ToshiPool --> SingleStake
+  ToshiPool --> LPFarm
+  ToshiPool --> XmasDrop
+
 
 
 ```
