@@ -71,7 +71,7 @@ To visualize, consider the flow of value in the ecosystem:
 
 ```mermaid
 flowchart LR
-  %% ---------------- Fee sources ----------------
+  %% -------- Fee sources --------
   subgraph FeeSources["Fee Sources"]
       Swap["Swap Trades<br/>0.15% fee"]
       Games["Game Plays<br/>30% profit"]
@@ -80,36 +80,36 @@ flowchart LR
       Agg["Aggregator Swaps<br/>0.5% fee"]
   end
 
-  %% ---------------- Core router & vault ----------------
+  %% -------- Core router + vault --------
   FeeRouter["Fee Router<br/>(auto buy & lock)"]
   Vault["TOSHIBA Vault<br/>(locked tokens)"]
 
-  %% ---------------- Vault outputs ----------------
+  %% -------- Vault outputs --------
   LPAdd["Adds LP<br/>TOSHIBA-ETH"]
   TeamVest["Team Wallets<br/>(2% × 5 per yr)"]
   ToshiPool["TOSHI Rewards Pool"]
 
-  %% ---------------- Reward sinks ----------------
+  %% -------- Reward sinks --------
   SingleStake["Single Staking<br/>(earn TOSHI)"]
   LPFarm["LP Farming<br/>(earn TOSHI)"]
   XmasDrop["Christmas Airdrop<br/>(solid holders)"]
 
-  %% ---------------- Flows: fees → router ----------------
+  %% -------- Flows: fees → router --------
   Swap   -->|fees| FeeRouter
   Games  -->|fees| FeeRouter
   Bridge -->|fees| FeeRouter
   NFTs   -->|fees| FeeRouter
   Agg    -->|fees| FeeRouter
 
-  %% ---------------- Router → vault ----------------
-  FeeRouter -->|buys & locks TOSHIBA| Vault
+  %% -------- Router → vault --------
+  FeeRouter -->|buy & lock| Vault
 
-  %% ---------------- Vault branches ----------------
+  %% -------- Vault branches --------
   Vault -->|pairs with ETH| LPAdd
-  Vault -->|yields TOSHI|   ToshiPool
-  Vault -. "2-yr cliff<br/>10% per yr" .-> TeamVest
+  Vault -->|yields TOSHI|  ToshiPool
+  Vault -->|team vesting|  TeamVest
 
-  %% ---------------- TOSHI distribution ----------------
+  %% -------- TOSHI distribution --------
   ToshiPool --> SingleStake
   ToshiPool --> LPFarm
   ToshiPool --> XmasDrop
