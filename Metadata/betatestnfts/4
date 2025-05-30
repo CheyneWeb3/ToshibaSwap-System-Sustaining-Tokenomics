@@ -1,0 +1,21 @@
+{
+    "name": "ToshibaSwap Beta Tester NFT #4",
+    "description": "As a ToshibaSwap beta tester, you get reduced fees on the swap aggregator. Please report your beta testing experience, bugs, issues, or feedback on our supports page. Tell us how awesome Toshiba token is!",
+    "image": "https://swap.develop.toshibaswap.com/images/invest.png",
+    "external_url": "https://toshibaswap.com/help",
+    "background_color": "ffffff",
+    "attributes": [
+        {
+            "trait_type": "Role",
+            "value": "Beta Tester"
+        },
+        {
+            "trait_type": "Program",
+            "value": "Beta Testing Launch"
+        },
+        {
+            "trait_type": "Reduced Fees",
+            "value": "Yes"
+        }
+    ]
+}
