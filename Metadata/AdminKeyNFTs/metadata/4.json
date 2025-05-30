@@ -1,0 +1,24 @@
+{
+  "name": "ToshibaSwap AdminKey #4",
+  "description": "The ToshibaSwap AdminKey is your elite access pass to the inner workings of the Toshiba meme coin dApp. Wielding this NFT means you're not just part of the ride you're at the controls. Full admin powers, special features, and governance tools are unlocked with this token. Only the chosen few hold the keys to ToshibaSwap.",
+  "image": "https://toshibaswap.com/Metadata/AdminKeyNFTs/images/1.webp",
+  "external_url": "https://toshibaswap.com",
+  "attributes": [
+    {
+      "trait_type": "Access Level",
+      "value": "Admin"
+    },
+    {
+      "trait_type": "Utility",
+      "value": "dApp Control"
+    },
+    {
+      "trait_type": "Token Type",
+      "value": "NFT Pass"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "ToshibaSwap"
+    }
+  ]
+}
